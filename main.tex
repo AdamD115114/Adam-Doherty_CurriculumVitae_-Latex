@@ -5,7 +5,6 @@
 % conditions of the LaTeX Project Public License version 1.3c,
 % available at http://www.latex-project.org/lppl/.
 
-
 \documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % moderncv themes
@@ -22,16 +21,26 @@
 %\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
 
 % adjust the page margins
-\usepackage[scale=0.77]{geometry}
+\usepackage[scale=0.80]{geometry}
+% \usepackage[scale=0.77]{geometry}
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
-
+\usepackage{fontawesome}
+% set the moderncv command for the Gitlab icon
+% create command if it does not exist
+\providecommand*{\gitlabsocialsymbol}{}
+% set command to \faGitlab from fontawesome
+\renewcommand*{\gitlabsocialsymbol}{{\scriptsize\faGitlab}~}
 % personal data
 \name{Adam}{Doherty}
+\social[linkedin][www.linkedin.com/in/adam-doherty-431335146]{Find me on LinkedIn}
+\social[github][github.com/AdamD115114]{AdamD115114}
+\social[gitlab][gitlab.com/AdamD115114]{AdamD115114}
 \title{26 years, Irish}                               % optional, remove / comment the line if not wanted
 \address{83 Oakleigh Wood, Dooradoyle}{Limerick, V94 XD83}{Ireland}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
 \phone[mobile]{+353~(086)~159~9822}                   % optional, , remove / comment the line if not wanted
 \email{AdamDoherty1995@gmail.com}                               %  remove / comment the line if not wanted
+% \href{https://www.linkedin.com/in/adam-doherty-431335146}{\includegraphics[width=0.15in,height=0.15in]{Icons/linkedin.png}}
 
 \begin{document}
 \makecvtitle
@@ -39,7 +48,7 @@
 \cventry{2021--Present}{Masters}{University Of Limerick}{Ireland}{\textit{Master of Computer Science by research}}{I am currently completing my Master's under the funding of the UL Cancer network. This action-based translational research is based in the production of proof of concepts for multiple project to a larger goal of providing a UL cancer portal for the University. This projects include:
 \begin{itemize}
     \item Autonomous detection and referral system for patients with Multiple Myeloma
-    \item A Misinformation veracity validation system for cancer information
+    \item A Misinformation veracity evaluation system for cancer information
     \item A Cachexia patient information analytic Pipeline
     \item A Non Hodgkin Lymphoma early detection and referral system
 \end{itemize}}
@@ -82,22 +91,25 @@ I took the role of Project Lead for an in house BAT completed on new systems bei
 % \end{itemize}}
 \section{Technologies}
 \cvitem{Frontend}{Vuejs, Angular}
-\cvitem{Backend}{Java, PHP, Dart, JavaEE, \texttt{C\#},Python}
-\cvitem{Database}{MySQL, SQL Server, Postgres, MongoBD}
+\cvitem{Backend}{Java, Java2EE, PHP, Dart, \texttt{C\#},Python}
+\cvitem{Database}{Postgres, MySQL, SQL Server, MongoBD, Firebase}
 \cvitem{Mobile}{Flutter, Swift, SOTI ONE platform}
 \cvitem{Model Driven}{DIME2, DIME, Cinco, Dywa Framework}
-\cvitem{Methodologies}{OOD, MDD, XP, XMDD}
-\cvitem{Other}{\LaTeX,  GitHub, BitBucket, Jira, Microsoft Office}
+\cvitem{Methodologies}{OOD, XMDD, MDD, XP}
+\cvitem{Virtualization}{Docker, kubernetes}
+\cvitem{Other}{GitHub, GitLab, \LaTeX, CI/CD pipeline, BitBucket, Jira, Markdown, Microsoft Office}
 \cvitem{Development Approach}{Scrum Management, Agile, Reverse Waterfall}
 \section{Interests}
 \cvitem{}{My main area of personal interest currently is in web-based application development. During my time at the University of Limerick, I started to gain an understanding of web-based development and began working on home projects of this nature. I work on my Raspberry Pi cluster as a home server for IoT automation projects and Docker services. I am an avid chess player and I was a former teacher for the Games Society in the University}
+% 
+% My main area of personal interest currently is in web-based application development. During my time at the University of Limerick, I started to gain an understanding of web-based development and began working on home projects of this nature. I work on my Raspberry Pi cluster as a home server for IoT automation projects and Docker services. I am an avid chess player and I was a former teacher for the Games Society in the University
 \section{Volunteering}
 \cvitem{2016}{Web development advisor, UL Reach, University of Limerick. Coded forms and assisted with the general development of a creative arts project that aims to raise awareness for mental health issues.}
 \cvitem{2016}{Postgraduate Research Assistant, University of Limerick. Typical duties included\begin{itemize}
     \item Social media advertisement and participant recruitment
     \item Informing participants of their rights and collecting questionnaire
 \end{itemize}}\vspace{-0.45cm}
-\cvitem{2015--2016}{I became ‘Head Coach’ for the UL Parkour Club. It was my responsibility to ensure all trainings were designed with a structured approach to the sport. I planned custom progressions for each member to tailor a plan for their ability and coordinate with our group of coaches to ratio coaches to students appropriately.}
+\cvitem{2015--2016}{I became ‘Head Coach’ for the UL Parkour Club. It was my responsibility to ensure all training's were designed with a structured approach to the sport. I planned custom progressions for each member to tailor a plan for their ability and coordinate with our group of coaches to ratio coaches to students appropriately.}
 \section{Personal Statement}
 \cvitem{}{I am a highly-organised individual with in-depth IT skills especially in the area of programming and troubleshooting. I am capable of problem solving in a diverse, creative and efficient manner. 
 I take pride in my punctuality and work ethic and I am easy going by nature with good communication skills. I have the ability to get along with both work colleagues and senior managers allowing me the capability to work both individually and as part of a team.}
