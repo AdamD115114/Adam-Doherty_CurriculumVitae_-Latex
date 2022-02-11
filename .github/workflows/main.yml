@@ -84,6 +84,17 @@ jobs:
           
       - name: Convert PDF to PNG
         run: convert -density 900 -background white -alpha off main.pdf -resize 25% -quality 90 -colorspace RGB resume.png
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "resume.png"
+      - name: File exists
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: echo All files Found
+      - name: File exists
+        if: steps.check_files.outputs.files_exists == 'false'
+        run: tree
       - name: Commit PNG
         id: commit
         run: |
