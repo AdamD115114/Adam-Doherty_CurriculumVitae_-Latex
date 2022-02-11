@@ -83,12 +83,12 @@ jobs:
           sudo sed -i "s/$MEM/$MEMR/" /etc/ImageMagick-6/policy.xml
           
       - name: Convert PDF to PNG
-        run: convert -density 900 -background white -alpha off main.pdf -resize 25% -quality 90 -colorspace RGB resume.png
+        run: convert -density 900 -background white -alpha off main.pdf -resize 25% -quality 90 -colorspace RGB CVImage.png
       - name: Check file existence
         id: check_files
         uses: andstor/file-existence-action@v1
         with:
-          files: "resume.png"
+          files: "CVImage.png"
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'true'
         run: echo All files Found
@@ -100,7 +100,7 @@ jobs:
         run: |
           git config --local user.email "action[bot]@github.com"
           git config --local user.name "github-actions[bot]"
-          git add resume.png
+          git add CVImage.png
           git add main.pdf
           git commit -m "[bot] updated png and pdf"
       - name: Push changes
