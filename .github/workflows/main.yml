@@ -81,26 +81,29 @@ jobs:
           sudo sed -i "s/$WDT/$WDTR/" /etc/ImageMagick-6/policy.xml
           sudo sed -i "s/$MAP/$MAPR/" /etc/ImageMagick-6/policy.xml
           sudo sed -i "s/$MEM/$MEMR/" /etc/ImageMagick-6/policy.xml
-          
       - name: Convert PDF to PNG
-        run: convert -density 900 -background white -alpha off main.pdf -resize 25% -quality 90 -colorspace RGB CVImage.png
+        run: convert -density 900 -background white -alpha off main.pdf -resize 25% -quality 90 -colorspace RGB resume.png
       - name: Check file existence
         id: check_files
         uses: andstor/file-existence-action@v1
         with:
-          files: "CVImage.png"
-      - name: File exists
+          files: "resume.png"
+      - name: Single Page CV Commit PNG
         if: steps.check_files.outputs.files_exists == 'true'
-        run: echo All files Found
-      - name: File exists
-        if: steps.check_files.outputs.files_exists == 'false'
-        run: tree
-      - name: Commit PNG
-        id: commit
+        id: commit1
         run: |
           git config --local user.email "action[bot]@github.com"
           git config --local user.name "github-actions[bot]"
-          git add CVImage.png
+          git add resume.png
+          git add main.pdf
+          git commit -m "[bot] updated png and pdf"
+      - name: Multi Page CV Commit PNG
+        if: steps.check_files.outputs.files_exists == 'false'
+        id: commit2
+        run: |
+          git config --local user.email "action[bot]@github.com"
+          git config --local user.name "github-actions[bot]"
+          git add resume-*.png
           git add main.pdf
           git commit -m "[bot] updated png and pdf"
       - name: Push changes
